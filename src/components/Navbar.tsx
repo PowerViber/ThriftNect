@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Navbar: React.FC = () => {
   return (
@@ -9,14 +9,19 @@ const Navbar: React.FC = () => {
         </svg>
         <span className="font-bold text-xl text-green-main">ThriftNect</span>
       </div>
+
       <nav className="hidden md:flex space-x-6 text-gray-700 font-medium">
         <a href="#hero" className="hover:text-green-main transition-colors duration-300">Beranda</a>
         <a href="#why-choose" className="hover:text-green-main transition-colors duration-300">Tentang Kami</a>
         <a href="#features" className="hover:text-green-main transition-colors duration-300">Fitur</a>
         <a href="#testimonials" className="hover:text-green-main transition-colors duration-300">Kontak</a>
       </nav>
-      <button className="bg-green-main text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-opacity duration-300 hidden md:block">Masuk</button>
-      <button className="md:hidden">
+
+      <button className="bg-green-main text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90 transition-opacity duration-300 hidden md:block">
+        Masuk
+      </button>
+
+      <button className="md:hidden" aria-label="Open menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-gray-600">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>

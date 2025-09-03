@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const Dashboard: React.FC = () => {
   return (
     <div className="bg-[#f7f9fc]">
       <main className="max-w-7xl mx-auto p-4 md:p-8">
-        
-        {/* Landing Page Hero Section */}
+        {/* Hero */}
         <section id="hero" className="bg-white rounded-3xl shadow-lg p-6 md:p-12 mb-12 mt-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
@@ -13,22 +12,30 @@ const Dashboard: React.FC = () => {
                 Penampilan Stylish, Harga Bersahabat, Ramah Lingkungan
               </h1>
               <p className="text-lg text-gray-700">
-                ThriftNect adalah platform e-commerce yang berfokus pada pakaian bekas berkualitas dari berbagai merek ternama. Kami mendukung gaya hidup berkelanjutan dengan menyediakan fashion yang _stylish_, terjangkau, dan ramah lingkungan.
+                ThriftNect adalah platform e-commerce yang berfokus pada pakaian bekas berkualitas dari berbagai merek ternama. Kami mendukung gaya hidup berkelanjutan dengan menyediakan fashion yang <i>stylish</i>, terjangkau, dan ramah lingkungan.
               </p>
               <button className="bg-green-main text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-opacity duration-300">
                 Jelajahi Sekarang
               </button>
             </div>
             <div>
-              <img src="https://placehold.co/600x400/1a4f4d/ffffff?text=Stylish+Thrifting" alt="Seorang pria tersenyum sambil mengenakan jaket" className="rounded-2xl shadow-xl w-full h-auto" />
+              <img
+                src="https://placehold.co/600x400/1a4f4d/ffffff?text=Stylish+Thrifting"
+                alt="Seorang pria tersenyum sambil mengenakan jaket"
+                className="rounded-2xl shadow-xl w-full h-auto"
+              />
             </div>
           </div>
         </section>
 
-        {/* Why Choose ThriftNect? */}
+        {/* Why choose */}
         <section id="why-choose" className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">Mengapa Harus Memilih ThriftNect?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">
+            Mengapa Harus Memilih ThriftNect?
+          </h2>
+
           <div className="grid md:grid-cols-3 gap-6">
+            {/* Card 1 */}
             <div className="bg-white rounded-2xl p-6 shadow-md transition-transform transform hover:scale-105 duration-300">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="bg-green-100 p-2 rounded-full">
@@ -39,9 +46,11 @@ const Dashboard: React.FC = () => {
                 <h3 className="text-xl font-semibold text-green-main">Akses ke Merek Ternama</h3>
               </div>
               <p className="text-gray-600">
-                Kami menyediakan produk fashion bekas dari merek-merek besar seperti Zara, H&M, dan Uniqlo.
+                Kami menyediakan produk fashion bekas dari merek-merek besar seperti Zara, H&amp;M, dan Uniqlo.
               </p>
             </div>
+
+            {/* Card 2 */}
             <div className="bg-white rounded-2xl p-6 shadow-md transition-transform transform hover:scale-105 duration-300">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="bg-green-100 p-2 rounded-full">
@@ -56,6 +65,8 @@ const Dashboard: React.FC = () => {
                 Menghubungkan penjual dan pembeli dalam satu ekosistem yang mudah diakses melalui aplikasi dan website.
               </p>
             </div>
+
+            {/* Card 3 */}
             <div className="bg-white rounded-2xl p-6 shadow-md transition-transform transform hover:scale-105 duration-300">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="bg-green-100 p-2 rounded-full">
@@ -64,38 +75,34 @@ const Dashboard: React.FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6l3 3m-3-3l-3 3" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-green-main">Keberlanjutan & Ramah Lingkungan</h3>
+                <h3 className="text-xl font-semibold text-green-main">Keberlanjutan &amp; Ramah Lingkungan</h3>
               </div>
               <p className="text-gray-600">
-                Mendukung fashion yang lebih berkelanjutan dengan mengurangi limbah pakaian melalui penjualan kembali barang _preloved_.
+                Mendukung fashion yang lebih berkelanjutan dengan mengurangi limbah pakaian melalui penjualan kembali barang <i>preloved</i>.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Current Fashion Trends Section */}
+        {/* Trends */}
         <section id="trends" className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">Temukan Tren Fashion Terkini di ThriftNect</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">
+            Temukan Tren Fashion Terkini di ThriftNect
+          </h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            <div className="rounded-xl overflow-hidden shadow-md">
-              <img src="https://placehold.co/400x400/d1d5db/ffffff?text=Oversized+Tee" alt="Foto produk 1" className="w-full h-auto object-cover" />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-md">
-              <img src="https://placehold.co/400x400/d1d5db/ffffff?text=Vintage+Jacket" alt="Foto produk 2" className="w-full h-auto object-cover" />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-md">
-              <img src="https://placehold.co/400x400/d1d5db/ffffff?text=Cargo+Pants" alt="Foto produk 3" className="w-full h-auto object-cover" />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-md">
-              <img src="https://placehold.co/400x400/d1d5db/ffffff?text=Knitwear" alt="Foto produk 4" className="w-full h-auto object-cover" />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-md">
-              <img src="https://placehold.co/400x400/d1d5db/ffffff?text=Sneakers" alt="Foto produk 5" className="w-full h-auto object-cover" />
-            </div>
+            {["Oversized+Tee","Vintage+Jacket","Cargo+Pants","Knitwear","Sneakers"].map((label) => (
+              <div key={label} className="rounded-xl overflow-hidden shadow-md">
+                <img
+                  src={`https://placehold.co/400x400/d1d5db/ffffff?text=${label}`}
+                  alt={label.replace(/\+/g, " ")}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Innovative Features Section */}
+        {/* Features */}
         <section id="features" className="bg-white rounded-3xl shadow-lg p-6 md:p-12 mb-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
@@ -104,66 +111,43 @@ const Dashboard: React.FC = () => {
                 Kami terus berinovasi untuk memberikan pengalaman belanja terbaik. Dengan fitur-fitur ini, mencari pakaian favorit jadi lebih mudah dan menyenangkan.
               </p>
               <ul className="list-disc list-inside space-y-2 text-gray-600">
-                <li>
-                  <span className="font-semibold text-green-main">Sistem _Pre-order_ Barang Bekas / _Custom_:</span> Buat _wishlist_ untuk barang yang sulit ditemukan dan dapatkan notifikasi saat tersedia.
-                </li>
-                <li>
-                  <span className="font-semibold text-green-main">Fitur Donasi Pakaian untuk Diskon:</span> Sumbangkan pakaian bekas dan dapatkan diskon atau poin untuk pembelian selanjutnya.
-                </li>
-                <li>
-                  <span className="font-semibold text-green-main">Rekomendasi Produk:</span> Algoritma kami mempersonalisasi rekomendasi berdasarkan riwayat pencarian Anda.
-                </li>
+                <li><span className="font-semibold text-green-main">Sistem <i>Pre-order</i> Barang Bekas / <i>Custom</i>:</span> Buat <i>wishlist</i> dan dapatkan notifikasi saat tersedia.</li>
+                <li><span className="font-semibold text-green-main">Fitur Donasi Pakaian untuk Diskon:</span> Sumbangkan pakaian dan dapatkan diskon/poin.</li>
+                <li><span className="font-semibold text-green-main">Rekomendasi Produk:</span> Rekomendasi personal berdasarkan riwayat pencarian.</li>
               </ul>
             </div>
             <div>
-              <img src="https://placehold.co/600x400/d1d5db/ffffff?text=Innovative+Features" alt="Ilustrasi fitur inovatif" className="rounded-2xl shadow-xl w-full h-auto" />
+              <img
+                src="https://placehold.co/600x400/d1d5db/ffffff?text=Innovative+Features"
+                alt="Ilustrasi fitur inovatif"
+                className="rounded-2xl shadow-xl w-full h-auto"
+              />
             </div>
           </div>
         </section>
 
-        {/* Customer Testimonials Section */}
+        {/* Testimonials */}
         <section id="testimonials" className="bg-gray-100 rounded-3xl p-6 md:p-12 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">Apa Kata Mereka?</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <p className="text-gray-700 italic mb-4">
-                "Saya suka sekali ThriftNect! Pilihan bajunya banyak, mereknya terkenal, dan harganya terjangkau. Saya bisa tampil _stylish_ tanpa merusak lingkungan."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-gray-300 rounded-full mr-4"></div>
-                <div>
-                  <p className="font-semibold text-green-main">Sarah W.</p>
-                  <p className="text-sm text-gray-500">Pelanggan Setia</p>
+            {[
+              { name:"Sarah W.", role:"Pelanggan Setia", quote:'"Saya suka sekali ThriftNect! Pilihan bajunya banyak, mereknya terkenal, dan harganya terjangkau. Saya bisa tampil stylish tanpa merusak lingkungan."' },
+              { name:"Budi S.", role:"Mitra Penjual", quote:'"Sebagai penjual, platform ini sangat membantu saya menjual stok lama. Prosesnya mudah dan customer service-nya cepat tanggap. Sangat direkomendasikan!"' },
+              { name:"Rani D.", role:"Donatur", quote:'"Fitur donasi untuk diskon adalah ide yang brilian! Saya bisa membersihkan lemari dan mendapatkan diskon di saat yang sama. Win-win solution!"' },
+            ].map((t) => (
+              <div key={t.name} className="bg-white rounded-2xl p-6 shadow-md">
+                <p className="text-gray-700 italic mb-4">{t.quote}</p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-gray-300 rounded-full mr-4" />
+                  <div>
+                    <p className="font-semibold text-green-main">{t.name}</p>
+                    <p className="text-sm text-gray-500">{t.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <p className="text-gray-700 italic mb-4">
-                "Sebagai penjual, platform ini sangat membantu saya menjual stok lama. Prosesnya mudah dan _customer service_-nya cepat tanggap. Sangat direkomendasikan!"
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-gray-300 rounded-full mr-4"></div>
-                <div>
-                  <p className="font-semibold text-green-main">Budi S.</p>
-                  <p className="text-sm text-gray-500">Mitra Penjual</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-md">
-              <p className="text-gray-700 italic mb-4">
-                "Fitur donasi untuk diskon adalah ide yang brilian! Saya bisa membersihkan lemari dan mendapatkan diskon di saat yang sama. _Win-win solution_!"
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-gray-300 rounded-full mr-4"></div>
-                <div>
-                  <p className="font-semibold text-green-main">Rani D.</p>
-                  <p className="text-sm text-gray-500">Donatur</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
-
       </main>
     </div>
   );

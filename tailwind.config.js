@@ -1,9 +1,16 @@
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
-        "green-main": "#1a4f4d", // custom color you used in components
+        "green-main": "#1a4f4d",
+      },
+      borderRadius: {
+        "3xl": "1.5rem",
       },
     },
   },
