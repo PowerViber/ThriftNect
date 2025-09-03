@@ -20,7 +20,7 @@ const MixMatch: React.FC = () => {
       <p className="text-gray-700 mb-8">Coba padukan berbagai outfit untuk menciptakan gaya unikmu.</p>
 
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        {/* Composited Preview */}
+        {/* Preview */}
         <div className="relative w-full aspect-square bg-gray-100 rounded-3xl overflow-hidden shadow-lg flex items-center justify-center">
           {/* Base model */}
           <img

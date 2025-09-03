@@ -7,7 +7,7 @@ type WishlistItem = {
   name: string;
   price?: number;
   image: string;
-  slug?: string; // only if linked to auction
+  slug?: string;
 };
 
 const Wishlist: React.FC = () => {

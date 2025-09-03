@@ -1,6 +1,6 @@
 export type AuctionItem = {
   id: number;
-  slug: string;          // used in the URL
+  slug: string;          
   name: string;
   image: string;
   description: string;
