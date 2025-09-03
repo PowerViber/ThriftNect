@@ -1,10 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 import Wishlist from "./pages/Wishlist";
-import Auction from "./pages/Auction";
+
+// New:
+import AuctionList from "./pages/AuctionList";
+import AuctionItem from "./pages/AuctionItem";
 import MixMatch from "./pages/MixMatch";
 
 const App: React.FC = () => {
@@ -16,7 +20,8 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/auction" element={<Auction />} />
+            <Route path="/auction" element={<AuctionList />} />
+            <Route path="/auction/:slug" element={<AuctionItem />} />
             <Route path="/mix-match" element={<MixMatch />} />
           </Routes>
         </main>
