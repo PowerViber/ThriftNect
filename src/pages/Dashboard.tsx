@@ -128,17 +128,41 @@ const Dashboard: React.FC = () => {
 
         {/* Testimonials */}
         <section id="testimonials" className="bg-gray-100 rounded-3xl p-6 md:p-12 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">Apa Kata Mereka?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">
+            Apa Kata Mereka?
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name:"Sarah W.", role:"Pelanggan Setia", quote:'"Saya suka sekali ThriftNect! Pilihan bajunya banyak, mereknya terkenal, dan harganya terjangkau. Saya bisa tampil stylish tanpa merusak lingkungan."' },
-              { name:"Budi S.", role:"Mitra Penjual", quote:'"Sebagai penjual, platform ini sangat membantu saya menjual stok lama. Prosesnya mudah dan customer service-nya cepat tanggap. Sangat direkomendasikan!"' },
-              { name:"Rani D.", role:"Donatur", quote:'"Fitur donasi untuk diskon adalah ide yang brilian! Saya bisa membersihkan lemari dan mendapatkan diskon di saat yang sama. Win-win solution!"' },
+              {
+                name: "Sarah W.",
+                role: "Pelanggan Setia",
+                quote:
+                  '"Saya suka sekali ThriftNect! Pilihan bajunya banyak, mereknya terkenal, dan harganya terjangkau. Saya bisa tampil stylish tanpa merusak lingkungan."',
+                img: "/src/assets/kritik/sarah.jpg"
+              },
+              {
+                name: "Budi S.",
+                role: "Mitra Penjual",
+                quote:
+                  '"Sebagai penjual, platform ini sangat membantu saya menjual stok lama. Prosesnya mudah dan customer service-nya cepat tanggap. Sangat direkomendasikan!"',
+                img: "/src/assets/kritik/budi.jpg",
+              },
+              {
+                name: "Rani D.",
+                role: "Donatur",
+                quote:
+                  '"Fitur donasi untuk diskon adalah ide yang brilian! Saya bisa membersihkan lemari dan mendapatkan diskon di saat yang sama. Win-win solution!"',
+                img: "/src/assets/kritik/rani.jpg",
+              },
             ].map((t) => (
               <div key={t.name} className="bg-white rounded-2xl p-6 shadow-md">
                 <p className="text-gray-700 italic mb-4">{t.quote}</p>
                 <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gray-300 rounded-full mr-4" />
+                  <img
+                    src={t.img}
+                    alt={t.name}
+                    className="w-10 h-10 rounded-full mr-4 object-cover"
+                  />
                   <div>
                     <p className="font-semibold text-green-main">{t.name}</p>
                     <p className="text-sm text-gray-500">{t.role}</p>
@@ -148,6 +172,7 @@ const Dashboard: React.FC = () => {
             ))}
           </div>
         </section>
+
       </main>
     </div>
   );
