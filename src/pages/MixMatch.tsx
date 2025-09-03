@@ -1,29 +1,18 @@
-// src/pages/MixMatch.tsx
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
+import { MIXMATCH_ITEMS, MIXMATCH_MODEL } from "../data/mixmatchItems";
+import type { MixMatchItem } from "../data/mixmatchItems";
 
 const MixMatch: React.FC = () => {
-  const items = {
-    top: [
-      { id: 1, name: "White T-Shirt",    image: "https://placehold.co/200x200/cccccc/ffffff?text=Tee" },
-      { id: 2, name: "Blue Shirt",       image: "https://placehold.co/200x200/60a5fa/ffffff?text=Shirt" },
-      { id: 3, name: "Striped Sweater",  image: "https://placehold.co/200x200/cbd5e1/ffffff?text=Sweater" },
-    ],
-    bottom: [
-      { id: 1, name: "Blue Jeans",   image: "https://placehold.co/200x200/3b82f6/ffffff?text=Jeans" },
-      { id: 2, name: "Black Pants",  image: "https://placehold.co/200x200/1f2937/ffffff?text=Pants" },
-      { id: 3, name: "Khaki Shorts", image: "https://placehold.co/200x200/e5e7eb/ffffff?text=Shorts" },
-    ],
-    shoes: [
-      { id: 1, name: "Gray Sneakers", image: "https://placehold.co/200x200/949494/ffffff?text=Sneakers" },
-      { id: 2, name: "Brown Loafers",  image: "https://placehold.co/200x200/8b5134/ffffff?text=Loafers" },
-      { id: 3, name: "Black Boots",    image: "https://placehold.co/200x200/374151/ffffff?text=Boots" },
-    ],
-  };
+  const tops = useMemo(() => MIXMATCH_ITEMS.filter(i => i.category === "top"), []);
+  const bottoms = useMemo(() => MIXMATCH_ITEMS.filter(i => i.category === "bottom"), []);
+  const shoes = useMemo(() => MIXMATCH_ITEMS.filter(i => i.category === "shoes"), []);
 
-  const [selectedTop, setSelectedTop] = useState(items.top[0]);
-  const [selectedBottom, setSelectedBottom] = useState(items.bottom[0]);
-  const [selectedShoes, setSelectedShoes] = useState(items.shoes[0]);
+  const [selectedTop, setSelectedTop] = useState<MixMatchItem>(tops[0]);
+  const [selectedBottom, setSelectedBottom] = useState<MixMatchItem>(bottoms[0]);
+  const [selectedShoes, setSelectedShoes] = useState<MixMatchItem>(shoes[0]);
   const [showSaved, setShowSaved] = useState(false);
+
+  const L = MIXMATCH_MODEL.layers;
 
   return (
     <div className="max-w-7xl mx-auto p-6 md:p-12">
@@ -31,87 +20,104 @@ const MixMatch: React.FC = () => {
       <p className="text-gray-700 mb-8">Coba padukan berbagai outfit untuk menciptakan gaya unikmu.</p>
 
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        {/* Preview */}
+        {/* Composited Preview */}
         <div className="relative w-full aspect-square bg-gray-100 rounded-3xl overflow-hidden shadow-lg flex items-center justify-center">
-          {/* base mannequin */}
+          {/* Base model */}
           <img
-            src="https://placehold.co/600x800/f7f9fc/ffffff?text=Model"
+            src={MIXMATCH_MODEL.image}
             alt="Base model"
             className="absolute z-0 w-full h-full object-contain pointer-events-none select-none"
           />
 
-          {/* TOP — placed upper area */}
+          {/* TOP layer */}
           {selectedTop && (
             <img
               src={selectedTop.image}
               alt={selectedTop.name}
               className="absolute z-10 object-contain pointer-events-none select-none"
-              style={{
-                top: "8%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                height: "38%",  // adjust to fit your assets
-              }}
+              style={L.top}
             />
           )}
 
-          {/* BOTTOM — placed mid-lower area */}
+          {/* BOTTOM layer */}
           {selectedBottom && (
             <img
               src={selectedBottom.image}
               alt={selectedBottom.name}
               className="absolute z-20 object-contain pointer-events-none select-none"
-              style={{
-                top: "42%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                height: "38%",
-              }}
+              style={L.bottom}
             />
           )}
 
-          {/* SHOES — placed at bottom */}
+          {/* SHOES layer */}
           {selectedShoes && (
             <img
               src={selectedShoes.image}
               alt={selectedShoes.name}
               className="absolute z-30 object-contain pointer-events-none select-none"
-              style={{
-                bottom: "4%",
-                left: "50%",
-                transform: "translateX(-50%)",
-                height: "18%",
-              }}
+              style={L.shoes}
             />
           )}
         </div>
 
-
         {/* Pickers */}
         <div className="space-y-8">
-          {([
-            { label: "Atasan",  data: items.top,    selected: selectedTop,    setter: setSelectedTop    },
-            { label: "Bawahan", data: items.bottom, selected: selectedBottom, setter: setSelectedBottom },
-            { label: "Sepatu",  data: items.shoes,  selected: selectedShoes,  setter: setSelectedShoes  },
-          ] as const).map((group) => (
-            <div key={group.label}>
-              <h3 className="text-2xl font-bold text-green-main mb-4">{group.label}</h3>
-              <div className="flex gap-4 overflow-x-auto pb-4">
-                {group.data.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => group.setter(item)}
-                    className={`cursor-pointer rounded-2xl p-3 shadow-md border-2 transition-all duration-300 focus:outline-none focus:ring-2 ${
-                      group.selected.id === item.id ? "border-green-main ring-green-main" : "border-gray-200"
-                    }`}
-                  >
-                    <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl" />
-                    <p className="text-sm text-center mt-2">{item.name}</p>
-                  </button>
-                ))}
-              </div>
+          {/* Top */}
+          <div>
+            <h3 className="text-2xl font-bold text-green-main mb-4">Atasan</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4">
+              {tops.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedTop(item)}
+                  className={`rounded-2xl p-3 shadow-md border-2 transition-all duration-300 focus:outline-none focus:ring-2 ${
+                    selectedTop.id === item.id ? "border-green-main ring-green-main" : "border-gray-200"
+                  }`}
+                >
+                  <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl" />
+                  <p className="text-sm text-center mt-2">{item.name}</p>
+                </button>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Bottom */}
+          <div>
+            <h3 className="text-2xl font-bold text-green-main mb-4">Bawahan</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4">
+              {bottoms.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedBottom(item)}
+                  className={`rounded-2xl p-3 shadow-md border-2 transition-all duration-300 focus:outline-none focus:ring-2 ${
+                    selectedBottom.id === item.id ? "border-green-main ring-green-main" : "border-gray-200"
+                  }`}
+                >
+                  <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl" />
+                  <p className="text-sm text-center mt-2">{item.name}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Shoes */}
+          <div>
+            <h3 className="text-2xl font-bold text-green-main mb-4">Sepatu</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4">
+              {shoes.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedShoes(item)}
+                  className={`rounded-2xl p-3 shadow-md border-2 transition-all duration-300 focus:outline-none focus:ring-2 ${
+                    selectedShoes.id === item.id ? "border-green-main ring-green-main" : "border-gray-200"
+                  }`}
+                >
+                  <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl" />
+                  <p className="text-sm text-center mt-2">{item.name}</p>
+                </button>
+              ))}
+            </div>
+          </div>
 
           <button
             className="w-full bg-green-main text-white px-6 py-3 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-opacity duration-300"
@@ -128,7 +134,9 @@ const MixMatch: React.FC = () => {
           <div role="dialog" aria-modal="true" className="bg-white p-8 rounded-xl shadow-lg text-center max-w-sm mx-auto">
             <p className="text-lg font-semibold text-green-600 mb-4">Outfit Tersimpan</p>
             <p className="text-gray-700 mb-6">Outfit Anda telah berhasil disimpan!</p>
-            <button onClick={() => setShowSaved(false)} className="bg-green-main text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90">Tutup</button>
+            <button onClick={() => setShowSaved(false)} className="bg-green-main text-white px-6 py-2 rounded-full font-semibold hover:bg-opacity-90">
+              Tutup
+            </button>
           </div>
         </div>
       )}

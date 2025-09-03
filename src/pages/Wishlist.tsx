@@ -17,14 +17,13 @@ const Wishlist: React.FC = () => {
       name: "Oversized Denim Jacket",
       price: 180000,
       image: "https://placehold.co/400x400/d1d5db/ffffff?text=Denim+Jacket",
-      slug: "oversized-denim-jacket", // available in auction
+      slug: "oversized-denim-jacket", 
     },
     {
       id: 2,
       name: "Vintage Graphic Tee",
       price: 95000,
       image: "https://placehold.co/400x400/d1d5db/ffffff?text=Graphic+Tee",
-      // no slug → only wishlist
     },
   ]);
 
