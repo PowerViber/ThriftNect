@@ -1,3 +1,5 @@
+import { itemsData } from './itemsData'; 
+
 export type MixMatchCategory = "top" | "bottom" | "shoes";
 
 export type MixMatchItem = {
@@ -12,27 +14,46 @@ const fallbackModel =
 
 export const MIXMATCH_MODEL = {
   image: fallbackModel,
-  // default placement per layer; tweak as your cutouts change
   layers: {
-    top:    { top: "8%",  left: "50%", transform: "translateX(-50%)", height: "38%" },
-    bottom: { top: "42%", left: "50%", transform: "translateX(-50%)", height: "38%" },
-    shoes:  { bottom: "4%", left: "50%", transform: "translateX(-50%)", height: "18%" },
+    top: {
+      top: "8%",
+      left: "50%",
+      transform: "translateX(-50%)",
+      height: "150px", // Fixed height for top item
+    },
+    bottom: {
+      top: "45%",
+      left: "50%",
+      transform: "translateX(-50%)",
+      height: "200px", // Fixed height for bottom item
+    },
+    shoes: {
+      bottom: "4%",
+      left: "50%",
+      transform: "translateX(-50%)",
+      height: "100px", // Fixed height for shoes item
+    },
   } as const,
 };
 
 export const MIXMATCH_ITEMS: MixMatchItem[] = [
-  // TOPS
-  { id: 1, name: "White T-Shirt", image: "/src/assets/items/white_tee.png", category: "top" },
-  { id: 2, name: "Blue Shirt",    image: "https://placehold.co/200x200/60a5fa/ffffff?text=Shirt",   category: "top" },
-  { id: 3, name: "Striped Sweater", image: "https://placehold.co/200x200/cbd5e1/ffffff?text=Sweater", category: "top" },
+  ...itemsData.map((item, index) => {
+    let category: MixMatchCategory;
+    if (item.name.toLowerCase().includes('tee') || 
+      item.name.toLowerCase().includes('jacket') || item.name.toLowerCase().includes('sweater') ||
+      item.name.toLowerCase().includes('shirt')) {
+      category = 'top';
+    } else if (item.name.toLowerCase().includes('jeans') || item.name.toLowerCase().includes('pants') || item.name.toLowerCase().includes('shorts')) {
+      category = 'bottom';
+    } else {
+      category = 'shoes'; 
+    }
 
-  // BOTTOMS
-  { id: 4, name: "Blue Jeans",  image: "/src/assets/items/blue_jeans.png", category: "bottom" },
-  { id: 5, name: "Black Pants", image: "https://placehold.co/200x200/1f2937/ffffff?text=Pants", category: "bottom" },
-  { id: 6, name: "Khaki Shorts", image: "https://placehold.co/200x200/e5e7eb/ffffff?text=Shorts", category: "bottom" },
-
-  // SHOES
-  { id: 7, name: "White Sneakers", image: "https://placehold.co/200x200/f3f4f6/ffffff?text=Sneakers", category: "shoes" },
-  { id: 8, name: "Brown Loafers",  image: "https://placehold.co/200x200/8b5134/ffffff?text=Loafers",  category: "shoes" },
-  { id: 9, name: "Black Boots",    image: "https://placehold.co/200x200/374151/ffffff?text=Boots",    category: "shoes" },
+    return {
+      id: index + 1, 
+      name: item.name,
+      image: `/src/assets/items/${item.image}`,
+      category: category,
+    };
+  })
 ];

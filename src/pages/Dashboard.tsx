@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router";
+import { itemsData } from "../data/itemsData"; 
 
 const Dashboard: React.FC = () => {
   return (
@@ -14,14 +16,17 @@ const Dashboard: React.FC = () => {
               <p className="text-lg text-gray-700">
                 ThriftNect adalah platform e-commerce yang berfokus pada pakaian bekas berkualitas dari berbagai merek ternama. Kami mendukung gaya hidup berkelanjutan dengan menyediakan fashion yang <i>stylish</i>, terjangkau, dan ramah lingkungan.
               </p>
-              <button className="bg-green-main text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-opacity duration-300">
-                Jelajahi Sekarang
-              </button>
+              <div className="flex space-x-4"></div>
+              <Link to="/auction">
+                <button className="bg-green-main text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-opacity duration-300">
+                  Jelajahi Sekarang
+                </button>
+              </Link>
             </div>
             <div>
               <img
-                src="https://placehold.co/600x400/1a4f4d/ffffff?text=Stylish+Thrifting"
-                alt="Seorang pria tersenyum sambil mengenakan jaket"
+                src="/src/assets/stylish_thriting.png"
+                alt="THrifting stylish"
                 className="rounded-2xl shadow-xl w-full h-auto"
               />
             </div>
@@ -89,39 +94,17 @@ const Dashboard: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-green-main mb-8">
             Temukan Tren Fashion Terkini di ThriftNect
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {["Oversized+Tee","Vintage+Jacket","Cargo+Pants","Knitwear","Sneakers"].map((label) => (
-              <div key={label} className="rounded-xl overflow-hidden shadow-md">
-                <img
-                  src={`https://placehold.co/400x400/d1d5db/ffffff?text=${label}`}
-                  alt={label.replace(/\+/g, " ")}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Features */}
-        <section id="features" className="bg-white rounded-3xl shadow-lg p-6 md:p-12 mb-12">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-green-main">Fitur Inovatif ThriftNect</h2>
-              <p className="text-gray-700">
-                Kami terus berinovasi untuk memberikan pengalaman belanja terbaik. Dengan fitur-fitur ini, mencari pakaian favorit jadi lebih mudah dan menyenangkan.
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-600">
-                <li><span className="font-semibold text-green-main">Sistem <i>Pre-order</i> Barang Bekas / <i>Custom</i>:</span> Buat <i>wishlist</i> dan dapatkan notifikasi saat tersedia.</li>
-                <li><span className="font-semibold text-green-main">Fitur Donasi Pakaian untuk Diskon:</span> Sumbangkan pakaian dan dapatkan diskon/poin.</li>
-                <li><span className="font-semibold text-green-main">Rekomendasi Produk:</span> Rekomendasi personal berdasarkan riwayat pencarian.</li>
-              </ul>
-            </div>
-            <div>
-              <img
-                src="https://placehold.co/600x400/d1d5db/ffffff?text=Innovative+Features"
-                alt="Ilustrasi fitur inovatif"
-                className="rounded-2xl shadow-xl w-full h-auto"
-              />
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-5 gap-4 max-w-7xl mx-auto">
+              {itemsData.slice(0, 5).map((item) => (
+                <div key={item.name} className="rounded-xl overflow-hidden shadow-md flex justify-center items-center">
+                  <img
+                    src={`/src/assets/items/${item.image}`}
+                    alt={item.name}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>

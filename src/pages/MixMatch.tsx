@@ -48,16 +48,6 @@ const MixMatch: React.FC = () => {
               style={L.bottom}
             />
           )}
-
-          {/* SHOES layer */}
-          {selectedShoes && (
-            <img
-              src={selectedShoes.image}
-              alt={selectedShoes.name}
-              className="absolute z-30 object-contain pointer-events-none select-none"
-              style={L.shoes}
-            />
-          )}
         </div>
 
         {/* Pickers */}
@@ -91,25 +81,6 @@ const MixMatch: React.FC = () => {
                   onClick={() => setSelectedBottom(item)}
                   className={`rounded-2xl p-3 shadow-md border-2 transition-all duration-300 focus:outline-none focus:ring-2 ${
                     selectedBottom.id === item.id ? "border-green-main ring-green-main" : "border-gray-200"
-                  }`}
-                >
-                  <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl" />
-                  <p className="text-sm text-center mt-2">{item.name}</p>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Shoes */}
-          <div>
-            <h3 className="text-2xl font-bold text-green-main mb-4">Sepatu</h3>
-            <div className="flex gap-4 overflow-x-auto pb-4">
-              {shoes.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setSelectedShoes(item)}
-                  className={`rounded-2xl p-3 shadow-md border-2 transition-all duration-300 focus:outline-none focus:ring-2 ${
-                    selectedShoes.id === item.id ? "border-green-main ring-green-main" : "border-gray-200"
                   }`}
                 >
                   <img src={item.image} alt={item.name} className="w-24 h-24 object-cover rounded-xl" />

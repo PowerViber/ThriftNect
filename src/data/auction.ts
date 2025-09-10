@@ -1,3 +1,5 @@
+import { itemsData } from './itemsData'; 
+
 export type AuctionItem = {
   id: number;
   slug: string;          
@@ -12,24 +14,24 @@ export const AUCTIONS: AuctionItem[] = [
     id: 1,
     slug: "vintage-leather-jacket",
     name: "Vintage Leather Jacket",
-    image: "https://placehold.co/600x600/1a4f4d/ffffff?text=Leather+Jacket",
-    description: "Jaket kulit vintage asli, kondisi sangat baik.",
+    image: `/src/assets/items/${itemsData.find(item => item.name === "Vintage Jacket")?.image}`,
+    description: "Jaket kulit vintage langka dalam kondisi sangat baik. Wajib dimiliki oleh setiap kolektor fashion.",
     startingBid: 250_000,
   },
   {
     id: 2,
-    slug: "oversized-denim-jacket",
-    name: "Oversized Denim Jacket",
-    image: "https://placehold.co/600x600/4b5563/ffffff?text=Denim+Jacket",
-    description: "Denim tebal, potongan oversized, cocok untuk streetwear.",
+    slug: "oversized-tee",
+    name: "Oversized Tee",
+    image: `/src/assets/items/${itemsData.find(item => item.name === "Oversized Tee")?.image || "https://placehold.co/600x600/4b5563/ffffff?text=Denim+Jacket"}`,
+    description: "T-shirt oversized yang nyaman dan stylish, sempurna untuk tampilan streetwear kasual. Esensial untuk lemari pakaian.",
     startingBid: 180_000,
   },
   {
     id: 3,
-    slug: "rare-band-tee-1998",
-    name: "Rare Band Tee (1998)",
-    image: "https://placehold.co/600x600/0f172a/ffffff?text=Band+Tee",
-    description: "Kaos band langka tahun 1998, kondisi kolektor.",
+    slug: "cargo-pants",
+    name: "Cargo Pants",
+    image: `/src/assets/items/${itemsData.find(item => item.name === "Cargo Pants")?.image || "https://placehold.co/600x600/0f172a/ffffff?text=Band+Tee"}`,
+    description: "Celana cargo dengan banyak kantong, cocok untuk gaya kasual.",
     startingBid: 320_000,
   },
 ];

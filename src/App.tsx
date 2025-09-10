@@ -6,6 +6,10 @@ import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 import Wishlist from "./pages/Wishlist";
 
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+
 // New:
 import AuctionList from "./pages/AuctionList";
 import AuctionItem from "./pages/AuctionItem";
@@ -20,6 +24,9 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/auction" element={<AuctionList />} />
             <Route path="/auction/:slug" element={<AuctionItem />} />
             <Route path="/mix-match" element={<MixMatch />} />
