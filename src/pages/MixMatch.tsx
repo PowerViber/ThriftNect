@@ -9,7 +9,7 @@ const MixMatch: React.FC = () => {
 
   const [selectedTop, setSelectedTop] = useState<MixMatchItem>(tops[0]);
   const [selectedBottom, setSelectedBottom] = useState<MixMatchItem>(bottoms[0]);
-  const [selectedShoes, setSelectedShoes] = useState<MixMatchItem>(shoes[0]);
+  // const [selectedShoes, setSelectedShoes] = useState<MixMatchItem>(shoes[0]);
   const [showSaved, setShowSaved] = useState(false);
 
   const L = MIXMATCH_MODEL.layers;

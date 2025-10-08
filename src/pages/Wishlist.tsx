@@ -14,10 +14,10 @@ const Wishlist: React.FC = () => {
   const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([
     {
       id: 1,
-      name: "Oversized Denim Jacket",
+      name: "Oversized Tee",
       price: 180000,
-      image: "https://placehold.co/400x400/d1d5db/ffffff?text=Denim+Jacket",
-      slug: "oversized-denim-jacket", 
+      image: "https://placehold.co/400x400/d1d5db/ffffff?text=Oversized+Tee",
+      slug: "oversized-tee",
     },
     {
       id: 2,

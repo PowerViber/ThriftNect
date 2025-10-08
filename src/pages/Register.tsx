@@ -16,8 +16,8 @@ const Register: React.FC = () => {
 
     const newUser = { name, email, password, points };
     users.push(newUser);
-    localStorage.setItem("loggedInUser", JSON.stringify(newUser)); // Store in localStorage
-    window.location.href = "/"; // Redirect to homepage or dashboard
+    localStorage.setItem("loggedInUser", JSON.stringify(newUser));
+    window.location.href = "/";
   };
 
   return (

@@ -1,4 +1,3 @@
-// src/data/itemsData.ts
 export const itemsData = [
   {
     name: "Oversized Tee",

@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="mt-8 text-center text-sm text-gray-500">
-        &copy; 2024 ThriftNect. All rights reserved.
+        &copy; 2025 ThriftNect. All rights reserved.
       </div>
     </footer>
   );

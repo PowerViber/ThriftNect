@@ -15,24 +15,9 @@ const fallbackModel =
 export const MIXMATCH_MODEL = {
   image: fallbackModel,
   layers: {
-    top: {
-      top: "8%",
-      left: "50%",
-      transform: "translateX(-50%)",
-      height: "150px", // Fixed height for top item
-    },
-    bottom: {
-      top: "45%",
-      left: "50%",
-      transform: "translateX(-50%)",
-      height: "200px", // Fixed height for bottom item
-    },
-    shoes: {
-      bottom: "4%",
-      left: "50%",
-      transform: "translateX(-50%)",
-      height: "100px", // Fixed height for shoes item
-    },
+    top:    { top: "8%",  left: "50%", transform: "translateX(-50%)", height: "40%" },
+    bottom: { top: "45%", left: "50%", transform: "translateX(-50%)", height: "50%" },
+    shoes:  { bottom: "4%", left: "50%", transform: "translateX(-50%)", height: "18%" },
   } as const,
 };
 
@@ -50,7 +35,7 @@ export const MIXMATCH_ITEMS: MixMatchItem[] = [
     }
 
     return {
-      id: index + 1, 
+      id: index + 1,  // Unique ID based on index
       name: item.name,
       image: `/src/assets/items/${item.image}`,
       category: category,

@@ -17,6 +17,6 @@ export const users: User[] = [
     name: "Inas Apsari",
     email: "inassani@gmail.com",
     password: "inasinas",
-    points: 200,
+    points: "kata bila 50" as any,
   },
 ];

@@ -6,7 +6,7 @@ const Profile: React.FC = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
-    window.location.href = "/login"; // Redirect to login page after logout
+    window.location.href = "/login"; 
   };
 
   return (
